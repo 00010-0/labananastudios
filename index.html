@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Estudios La Banana™</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+  --ink:#0d0b07;
+  --ink2:#1a1610;
+  --yel:#f0c52a;
+  --yel2:#f5d655;
+  --yel3:#c99a0b;
+  --cream:#f7edcf;
+  --warm:#a08540;
+  --dim:#4a3f28;
+  --border:rgba(240,197,42,.18);
+  --border-h:rgba(240,197,42,.5);
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+
+html,body{
+  height:100%;
+  overflow:hidden;
+  background:var(--ink);
+  font-family:'Outfit',sans-serif;
+  color:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;z-index:999;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  background-size:300px 300px;
+}
+
+.shell{
+  width:100%;height:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+
+/* ── LEFT ── */
+.left{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#1e1a0f 0%,#0d0b07 100%);
+  overflow:hidden;
+}
+.left::before{
+  content:'';
+  position:absolute;
+  width:420px;height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(240,197,42,.18) 0%,transparent 70%);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  animation:breathe 5s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8;}
+  50%{transform:translate(-50%,-50%) scale(1.12);opacity:1;}
+}
+.arcs{position:absolute;inset:0;pointer-events:none;}
+.banana-art{
+  position:relative;z-index:2;
+  animation:floatBan 6s ease-in-out infinite;
+  filter:drop-shadow(0 20px 60px rgba(240,197,42,.35)) drop-shadow(0 0 120px rgba(240,197,42,.15));
+}
+@keyframes floatBan{
+  0%,100%{transform:translateY(0) rotate(-2deg);}
+  50%{transform:translateY(-14px) rotate(2deg);}
+}
+.studio-tag{
+  position:absolute;bottom:2rem;left:50%;
+  transform:translateX(-50%);
+  font-family:'Oswald',sans-serif;
+  font-size:.55rem;letter-spacing:5px;text-transform:uppercase;
+  color:var(--dim);white-space:nowrap;
+}
+
+/* ── RIGHT ── */
+.right{
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:2.2rem 2rem 2rem 1.8rem;
+  background:var(--ink2);
+  border-left:1px solid var(--border);
+  overflow:hidden;
+}
+.wordmark{
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-size:2.55rem;font-weight:900;
+  line-height:.92;color:var(--yel);letter-spacing:-1px;
+  margin-bottom:.2rem;
+}
+.wordmark em{font-style:normal;color:var(--cream);font-weight:700;}
+.wordmark-line2{
+  font-family:'Oswald',sans-serif;font-size:.6rem;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--warm);margin-bottom:1.1rem;
+}
+.pill-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.25rem;}
+.pill{
+  font-size:.65rem;font-weight:600;letter-spacing:.4px;
+  padding:.2rem .7rem;border-radius:100px;
+  font-family:'Oswald',sans-serif;text-transform:uppercase;
+}
+.pill-gold{background:rgba(240,197,42,.12);border:1px solid rgba(240,197,42,.35);color:var(--yel2);}
+.pill-dark{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);color:var(--dim);}
+.div-line{height:1px;background:linear-gradient(90deg,var(--border) 0%,transparent 100%);margin-bottom:1.1rem;}
+
+.links{display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.2rem;}
+.lbtn{
+  display:flex;align-items:center;gap:.8rem;
+  background:rgba(240,197,42,.05);border:1px solid var(--border);
+  border-radius:14px;padding:.7rem 1rem;
+  text-decoration:none;color:var(--cream);
+  font-size:.83rem;font-weight:500;
+  transition:background .2s,border-color .2s,transform .18s;cursor:pointer;
+}
+.lbtn:hover{background:rgba(240,197,42,.1);border-color:var(--border-h);transform:translateX(3px);}
+.lbtn-ic{
+  width:30px;height:30px;flex-shrink:0;
+  background:rgba(240,197,42,.1);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;color:var(--yel);transition:background .2s;
+}
+.lbtn:hover .lbtn-ic{background:rgba(240,197,42,.2);}
+.lbtn-text{flex:1;}
+.lbtn-title{display:block;line-height:1.2;}
+.lbtn-sub{display:block;font-size:.68rem;color:var(--warm);line-height:1.2;}
+.lbtn-arr{color:var(--dim);font-size:.65rem;transition:transform .18s,color .18s;}
+.lbtn:hover .lbtn-arr{transform:translateX(3px);color:var(--yel);}
+
+.chip-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.1rem;}
+.chip{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:transparent;border:1px solid var(--border);border-radius:100px;
+  padding:.32rem .85rem;font-size:.7rem;font-weight:600;
+  color:var(--warm);font-family:'Oswald',sans-serif;
+  text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all .2s;
+}
+.chip i{font-size:.65rem;}
+.chip:hover{background:rgba(240,197,42,.1);border-color:var(--border-h);color:var(--yel2);}
+
+.soc-row{
+  display:flex;align-items:center;gap:.6rem;
+  padding-top:.7rem;border-top:1px solid var(--border);
+}
+.soc-btn{
+  width:32px;height:32px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  color:var(--dim);font-size:.85rem;text-decoration:none;transition:all .18s;
+}
+.soc-btn:hover{background:rgba(240,197,42,.12);border-color:var(--border-h);color:var(--yel);}
+.soc-copy{margin-left:auto;font-family:'Oswald',sans-serif;font-size:.52rem;letter-spacing:2px;text-transform:uppercase;color:var(--dim);}
+
+/* ── MOBILE ── */
+@media(max-width:640px){
+  html,body{overflow:auto;}
+  .shell{grid-template-columns:1fr;height:auto;min-height:100%;}
+  .left{height:52vw;min-height:200px;max-height:280px;}
+  .right{padding:1.6rem 1.3rem 2.5rem;border-left:none;border-top:1px solid var(--border);}
+  .wordmark{font-size:2rem;}
+}
+@media(max-width:380px){
+  .left{height:48vw;}
+  .wordmark{font-size:1.75rem;}
+  .right{padding:1.3rem 1rem 2rem;}
+}
+
+/* ── MODALES ── */
+.overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(5,4,2,.9);backdrop-filter:blur(10px);
+  z-index:800;align-items:flex-end;justify-content:center;
+}
+.overlay.open{display:flex;animation:ovIn .2s ease both;}
+@keyframes ovIn{from{opacity:0;}to{opacity:1;}}
+.modal{
+  background:#171410;border:1px solid var(--border-h);
+  border-radius:24px 24px 0 0;
+  padding:1.6rem 1.5rem calc(2rem + env(safe-area-inset-bottom,0));
+  width:100%;max-width:540px;max-height:78vh;overflow-y:auto;
+  position:relative;animation:sheetUp .28s cubic-bezier(.23,1,.32,1) both;
+}
+@keyframes sheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.modal-handle{width:36px;height:3px;background:rgba(255,255,255,.1);border-radius:4px;margin:0 auto 1.3rem;}
+.modal-close{
+  position:absolute;top:1rem;right:1.1rem;width:28px;height:28px;
+  background:rgba(255,255,255,.05);border:none;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:.8rem;color:var(--warm);transition:all .18s;
+}
+.modal-close:hover{background:rgba(240,197,42,.15);color:var(--yel);}
+.modal-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.7rem;color:var(--yel2);margin-bottom:1rem;}
+.modal-body{font-size:.85rem;color:#b09c76;line-height:1.7;}
+.modal-body strong{color:var(--cream);}
+.modal-body a{color:var(--yel);text-decoration:none;font-weight:600;}
+.modal-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin:1rem 0;}
+.modal-list li{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;font-size:.83rem;color:#c4ac84;line-height:1.55;}
+.modal-list li strong{color:var(--cream);}
+.m-tag{display:inline-block;font-family:'Oswald',sans-serif;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;background:rgba(240,197,42,.1);border:1px solid rgba(240,197,42,.25);color:var(--yel);border-radius:100px;padding:.12rem .55rem;margin-bottom:.3rem;}
+.modal-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--yel);color:#111008;font-weight:700;font-size:.82rem;padding:.6rem 1.3rem;border-radius:100px;border:none;cursor:pointer;margin-top:1.1rem;text-decoration:none;font-family:'Outfit',sans-serif;transition:filter .2s,transform .2s;}
+.modal-cta:hover{filter:brightness(1.08);transform:translateY(-1px);}
+.review-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:.85rem 1rem;margin-bottom:.6rem;}
+.review-stars{color:var(--yel);font-size:.7rem;margin-bottom:.25rem;letter-spacing:2px;}
+.review-text{font-size:.82rem;color:#c0aa84;font-style:italic;line-height:1.55;}
+.review-author{font-size:.68rem;color:var(--dim);margin-top:.35rem;font-family:'Oswald',sans-serif;letter-spacing:.5px;}
+.music-row{display:flex;align-items:center;gap:.75rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:.75rem 1rem;margin-bottom:.55rem;text-decoration:none;transition:border-color .18s,background .18s;}
+.music-row:hover{border-color:var(--border-h);background:rgba(240,197,42,.05);}
+.music-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.music-label{font-size:.83rem;font-weight:600;color:var(--cream);}
+.music-sub{font-size:.68rem;color:var(--warm);}
+.music-arr{margin-left:auto;color:var(--dim);font-size:.65rem;}
+
+/* entry animations */
+.left{animation:fadeL .6s ease both;}
+@keyframes fadeL{from{opacity:0;}to{opacity:1;}}
+.wordmark{animation:fadeR .5s .05s ease both;}
+.wordmark-line2{animation:fadeR .5s .1s ease both;}
+.pill-row{animation:fadeR .5s .15s ease both;}
+.div-line{animation:fadeR .5s .18s ease both;}
+.links{animation:fadeR .5s .22s ease both;}
+.chip-row{animation:fadeR .5s .28s ease both;}
+.soc-row{animation:fadeR .5s .33s ease both;}
+@keyframes fadeR{from{opacity:0;transform:translateX(12px);}to{opacity:1;transform:translateX(0);}}
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ══ LEFT: BANANA ART ══ -->
+  <div class="left">
+    <svg class="arcs" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <circle cx="200" cy="300" r="170" stroke="rgba(240,197,42,0.06)" stroke-width="1"/>
+      <circle cx="200" cy="300" r="210" stroke="rgba(240,197,42,0.04)" stroke-width="1"/>
+      <circle cx="200" cy="300" r="250" stroke="rgba(240,197,42,0.025)" stroke-width="1"/>
+      <line x1="200" y1="60" x2="200" y2="540" stroke="rgba(240,197,42,0.05)" stroke-width=".8" stroke-dasharray="4 8"/>
+      <line x1="30" y1="300" x2="370" y2="300" stroke="rgba(240,197,42,0.05)" stroke-width=".8" stroke-dasharray="4 8"/>
+    </svg>
+
+    <div class="banana-art">
+      <svg width="200" height="240" viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="banBody" x1="30" y1="30" x2="170" y2="200" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fff2a0"/>
+            <stop offset="28%" stop-color="#f5c922"/>
+            <stop offset="62%" stop-color="#d49a05"/>
+            <stop offset="100%" stop-color="#7a5500"/>
+          </linearGradient>
+          <linearGradient id="banHi" x1="60" y1="40" x2="120" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fffacc" stop-opacity=".95"/>
+            <stop offset="100%" stop-color="#ffe566" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="banShadow" x1="80" y1="160" x2="160" y2="240" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#5a3d00" stop-opacity=".7"/>
+            <stop offset="100%" stop-color="#2a1c00" stop-opacity=".9"/>
+          </linearGradient>
+          <linearGradient id="banStem" x1="95" y1="15" x2="115" y2="50" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#6b4a10"/>
+            <stop offset="100%" stop-color="#3a2508"/>
+          </linearGradient>
+        </defs>
+        <!-- cast shadow -->
+        <ellipse cx="105" cy="222" rx="52" ry="10" fill="rgba(0,0,0,0.45)"/>
+        <!-- main body -->
+        <path d="M 105 28 C 118 18, 140 22, 155 38 C 170 55, 175 80, 170 108 C 165 135, 155 158, 140 178 C 125 198, 108 210, 90 214 C 75 218, 62 212, 55 200 C 48 188, 52 170, 62 155 C 72 140, 85 125, 95 108 C 105 90, 108 68, 105 48 C 103 38, 103 30, 105 28 Z" fill="url(#banBody)"/>
+        <!-- shadow underside -->
+        <path d="M 55 200 C 62 212, 75 218, 90 214 C 108 210, 125 198, 140 178 C 128 184, 112 193, 95 197 C 78 201, 63 197, 55 200 Z" fill="url(#banShadow)" opacity=".6"/>
+        <!-- highlight -->
+        <path d="M 108 35 C 120 30, 138 38, 148 52 C 158 66, 162 85, 158 106 C 154 122, 147 138, 138 152 C 130 138, 125 118, 126 100 C 127 80, 122 58, 108 42 Z" fill="url(#banHi)" opacity=".7"/>
+        <!-- specular line -->
+        <path d="M 115 42 C 130 55, 142 80, 138 110 C 136 125, 130 140, 122 154" stroke="rgba(255,252,200,0.35)" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <!-- stem -->
+        <path d="M 105 28 C 104 22, 103 15, 100 11 C 98 8, 96 7, 97 10 C 98 14, 101 20, 103 26" fill="url(#banStem)" stroke="#2a1800" stroke-width=".5"/>
+        <ellipse cx="100" cy="11" rx="5" ry="3.5" fill="#3a2508" transform="rotate(-10 100 11)"/>
+        <!-- tip -->
+        <path d="M 57 198 C 52 202, 46 210, 44 218 C 43 222, 46 224, 50 220 C 54 215, 58 206, 60 200 Z" fill="#2a1800"/>
+        <!-- inner crease -->
+        <path d="M 100 50 C 92 75, 78 100, 68 128 C 60 150, 57 172, 60 195" stroke="rgba(90,60,0,0.25)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+        <!-- spots -->
+        <circle cx="88" cy="170" r="2.5" fill="rgba(80,45,0,0.22)"/>
+        <circle cx="80" cy="182" r="1.8" fill="rgba(80,45,0,0.18)"/>
+        <circle cx="95" cy="185" r="1.5" fill="rgba(80,45,0,0.15)"/>
+        <circle cx="130" cy="95" r="1.5" fill="rgba(200,160,20,0.3)"/>
+        <circle cx="145" cy="70" r="1.2" fill="rgba(255,240,80,0.25)"/>
+      </svg>
+    </div>
+
+    <span class="studio-tag">Estudios La Banana · Est. Madrid</span>
+  </div>
+
+  <!-- ══ RIGHT: CONTENT ══ -->
+  <div class="right">
+    <div class="wordmark">La<br><em>Banana™</em></div>
+    <div class="wordmark-line2">Producción · Mezcla · Mastering</div>
+
+    <div class="pill-row">
+      <span class="pill pill-gold">🏆 +160M Streams</span>
+      <span class="pill pill-gold">💿 Disco de Oro</span>
+      <span class="pill pill-gold">🎙️ Grammy Member</span>
+      <span class="pill pill-dark">📍 CP 50003</span>
+    </div>
+
+    <div class="div-line"></div>
+
+    <div class="links">
+      <a href="mailto:estudioslabanana@gmail.com?subject=Consulta%20Grabaci%C3%B3n%20y%20Mezcla" class="lbtn">
+        <div class="lbtn-ic"><i class="fas fa-microphone-alt"></i></div>
+        <div class="lbtn-text">
+          <span class="lbtn-title">Grabación · Mezcla · Mastering</span>
+          <span class="lbtn-sub">Solicitar sesión o presupuesto</span>
+        </div>
+        <i class="fas fa-arrow-right lbtn-arr"></i>
+      </a>
+      <a href="mailto:estudioslabanana@gmail.com?subject=Informaci%C3%B3n%20F%C3%B3rmate%20Aqu%C3%AD" class="lbtn">
+        <div class="lbtn-ic"><i class="fas fa-graduation-cap"></i></div>
+        <div class="lbtn-text">
+          <span class="lbtn-title">Fórmate Aquí</span>
+          <span class="lbtn-sub">Clases presenciales y online</span>
+        </div>
+        <i class="fas fa-arrow-right lbtn-arr"></i>
+      </a>
+      <a href="mailto:estudioslabanana@gmail.com" class="lbtn">
+        <div class="lbtn-ic"><i class="fas fa-envelope"></i></div>
+        <div class="lbtn-text">
+          <span class="lbtn-title">estudioslabanana@gmail.com</span>
+          <span class="lbtn-sub">Contacto directo</span>
+        </div>
+        <i class="fas fa-arrow-right lbtn-arr"></i>
+      </a>
+    </div>
+
+    <div class="chip-row">
+      <button class="chip" data-modal="worki"><i class="fas fa-briefcase"></i> Worki</button>
+      <button class="chip" data-modal="resenas"><i class="fas fa-star"></i> Reseñas</button>
+      <button class="chip" data-modal="music"><i class="fas fa-headphones"></i> Music</button>
+      <button class="chip" data-modal="faq"><i class="fas fa-circle-question"></i> FAQ</button>
+    </div>
+
+    <div class="soc-row">
+      <a class="soc-btn" href="https://www.instagram.com/estudioslabanana" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a class="soc-btn" href="https://www.tiktok.com/@labananastudio" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a class="soc-btn" href="https://open.spotify.com/artist/placeholder" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+      <a class="soc-btn" href="https://www.youtube.com/@labananastudio" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <span class="soc-copy">© 2025 La Banana</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ MODALES ══ -->
+
+<div class="overlay" id="ov-worki">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <button class="modal-close"><i class="fas fa-xmark"></i></button>
+    <h2 class="modal-title">Worki</h2>
+    <p class="modal-body">Producciones y proyectos más destacados del estudio:</p>
+    <ul class="modal-list">
+      <li><div class="m-tag">Platino</div><br><strong>"STA ION"</strong> — Single con más de 40M streams en plataformas globales.</li>
+      <li><div class="m-tag">Grammy Collab</div><br><strong>"HOF ZOMBEREM"</strong> — Remix oficial en colaboración con artistas Grammy.</li>
+      <li><div class="m-tag">Disco de Oro</div><br><strong>"NEWWEEKEND"</strong> — Tema del verano. Ingeniería de mezcla y mastering.</li>
+      <li><div class="m-tag">Clientes</div><br><strong>Warner, Sony</strong> y productores independientes de toda Latinoamérica.</li>
+    </ul>
+    <a href="mailto:estudioslabanana@gmail.com?subject=Proyecto" class="modal-cta"><i class="fas fa-envelope"></i> Háblanos de tu proyecto</a>
+  </div>
+</div>
+
+<div class="overlay" id="ov-resenas">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <button class="modal-close"><i class="fas fa-xmark"></i></button>
+    <h2 class="modal-title">Reseñas</h2>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"El mejor estudio para mezcla y mastering. Logramos sonido completamente internacional."</p><p class="review-author">— Maria C. · Artista independiente</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"La Banana nos dio un hit con más de 20M reproducciones. Calidad insuperable."</p><p class="review-author">— Prod. Nexus · Productor</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Miembros del Grammy, atención personalizada y sonido de primera clase."</p><p class="review-author">— DJ Roger · DJ & Productor</p></div>
+    <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Grabamos nuestro disco aquí y logramos Disco de Oro. Son maestros."</p><p class="review-author">— Banda Estelar · Grupo musical</p></div>
+  </div>
+</div>
+
+<div class="overlay" id="ov-music">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <button class="modal-close"><i class="fas fa-xmark"></i></button>
+    <h2 class="modal-title">Music</h2>
+    <p class="modal-body" style="margin-bottom:1rem;">Escucha los proyectos producidos por <strong>La Banana</strong> con más de 160M streams:</p>
+    <a class="music-row" href="https://open.spotify.com/artist/placeholder" target="_blank">
+      <div class="music-ic" style="background:rgba(30,215,96,.12);color:#1ED760;"><i class="fab fa-spotify"></i></div>
+      <div><div class="music-label">Spotify</div><div class="music-sub">La Banana Studio Hits</div></div>
+      <i class="fas fa-arrow-up-right-from-square music-arr"></i>
+    </a>
+    <a class="music-row" href="https://music.apple.com/us/artist/labanana" target="_blank">
+      <div class="music-ic" style="background:rgba(252,60,68,.12);color:#fc3c44;"><i class="fab fa-apple"></i></div>
+      <div><div class="music-label">Apple Music</div><div class="music-sub">Discografía completa</div></div>
+      <i class="fas fa-arrow-up-right-from-square music-arr"></i>
+    </a>
+    <a class="music-row" href="https://www.youtube.com/@labananastudio" target="_blank">
+      <div class="music-ic" style="background:rgba(255,0,0,.12);color:#FF0000;"><i class="fab fa-youtube"></i></div>
+      <div><div class="music-label">YouTube</div><div class="music-sub">Videos & sesiones de estudio</div></div>
+      <i class="fas fa-arrow-up-right-from-square music-arr"></i>
+    </a>
+  </div>
+</div>
+
+<div class="overlay" id="ov-faq">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <button class="modal-close"><i class="fas fa-xmark"></i></button>
+    <h2 class="modal-title">FAQ</h2>
+    <ul class="modal-list">
+      <li><strong>¿Cuánto cuesta una sesión de mezcla?</strong><br>Depende del proyecto. Escríbenos para presupuesto personalizado sin compromiso.</li>
+      <li><strong>¿Ofrecéis cursos de producción musical?</strong><br>"Fórmate Aquí" en modalidad presencial y online. Contáctanos para más información.</li>
+      <li><strong>¿Cómo envío material para masterizar?</strong><br>Vía email o WeTransfer. Consulta disponibilidad antes de enviar archivos.</li>
+      <li><strong>¿Tenéis membresía GRAMMY?</strong><br>Sí, somos miembros activos de The Recording Academy.</li>
+      <li><strong>¿Trabajáis con artistas internacionales?</strong><br>Sí. Hemos colaborado con Warner, Sony y productores de toda Latinoamérica.</li>
+    </ul>
+    <a href="mailto:estudioslabanana@gmail.com?subject=Pregunta" class="modal-cta"><i class="fas fa-envelope"></i> Envíanos tu pregunta</a>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  const map={worki:'ov-worki',resenas:'ov-resenas',music:'ov-music',faq:'ov-faq'};
+  function open(id){const o=document.getElementById(id);if(!o)return;o.classList.add('open');document.body.style.overflow='hidden';}
+  function close(o){if(!o)return;o.classList.remove('open');document.body.style.overflow='';}
+  document.querySelectorAll('[data-modal]').forEach(b=>{b.addEventListener('click',()=>open(map[b.dataset.modal]));});
+  document.querySelectorAll('.modal-close').forEach(b=>{b.addEventListener('click',()=>close(b.closest('.overlay')));});
+  document.querySelectorAll('.overlay').forEach(o=>{o.addEventListener('click',e=>{if(e.target===o)close(o);});});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.overlay.open').forEach(o=>close(o));});
+  document.querySelectorAll('.modal').forEach(m=>{
+    let sy=0,cy=0,drag=false;
+    m.addEventListener('touchstart',e=>{sy=e.touches[0].clientY;drag=true;},{passive:true});
+    m.addEventListener('touchmove',e=>{if(!drag)return;cy=e.touches[0].clientY;const d=Math.max(0,cy-sy);m.style.transform=`translateY(${d}px)`;},{passive:true});
+    m.addEventListener('touchend',()=>{drag=false;if(cy-sy>80){m.style.transform='';close(m.closest('.overlay'));}else m.style.transform='';sy=0;cy=0;});
+  });
+})();
+</script>
+</body>
+</html>
